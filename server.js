@@ -31,5 +31,5 @@ app.get("/", (req, res) => {
 
 
 app.listen(PORT, () =>
-  console.info(`Example app listening at http://localhost:${PORT} 🚀`)
+  console.info("Example app listening at http://localhost:${PORT} 🚀")
 );
