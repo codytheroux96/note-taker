@@ -22,6 +22,9 @@ app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "./public/index.html"));
   });
 
+  //need to create a unique id
+  //need to make a function to create a new note
+  //need to make an app.post to post the new note
 
 
 
