@@ -15,12 +15,12 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./public/index.html"));
-});
-
 app.get("/notes", (req, res) => {
   res.sendFile(path.join(__dirname, "./public/notes.html"));
+});
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 
 app.get("/api/notes", (req, res) => {
@@ -57,8 +57,8 @@ app.get("/api/notes", (req, res) => {
 //       text,
 //       review_id: uuid(),
 //     };
-//     const noteString = JSON.stringify(newNote);
-//     fs.writeFile(`./db/db.json`, noteString, () => {
+//     let noteString = JSON.stringify((newNote), null, 2);
+//     fs.writeToFile(`./db/db.json`, noteString, () => {
 //      const response = {
 //         status: 'success',
 //         body: newNote,
