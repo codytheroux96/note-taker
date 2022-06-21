@@ -5,6 +5,12 @@ const app = express();
 const PORT =  3001;
 const { notes } = require("./db/db.json")
 
+const uuid = () => {
+    return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+  };
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
@@ -25,9 +31,7 @@ app.get("/api/notes", (req, res) => {
     res.json(notes);
   });
 
-
-
-
+  
 
   //need to create a unique id
   //need to make a function to create a new note
