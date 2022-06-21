@@ -3,13 +3,9 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const PORT =  3001;
-const { notes } = require("./db/db.json")
+const { notes } = require("./db/db.json");
+const { uuid } = require("./utils/utils.js");
 
-const uuid = () => {
-    return Math.floor((1 + Math.random()) * 0x10000)
-      .toString(16)
-      .substring(1);
-  };
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
