@@ -28,13 +28,20 @@ app.get("/api/notes", (req, res) => {
   });
   
   // function createNewNote(body, notesArray) {
-  //   const note = body;
-  //   notesArray.push(note);
+  //   const { title, text}= req.body;
+  //   const notesArray = [];
+  //   let newNote = {
+  //     title,
+  //     text,
+  //     id: uuid(),
+  //   };
+  //   if (title && text)
+  //   notesArray.push(newNote);
   //   fs.writeFileSync(
   //     path.join(__dirname, './db/db.json'),
   //     JSON.stringify({ notes: notesArray }, null, 2)
   //   );
-  //   return note;
+  //   return newNote;
   // };  
   
   // app.post('/api/notes', (req, res) => {
