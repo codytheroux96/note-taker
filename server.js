@@ -43,21 +43,25 @@ app.get("/api/notes", (req, res) => {
   //   res.json(note);
   // });
   
+
+
 // app.post('/api/notes', (req, res) => {
-// const { title, text, } = req.body;
-//   if (title && text) {
+//   const { title, text, } = req.body;
+//   if (title && text ) {
 //     const newNote = {
 //       title,
 //       text,
 //       review_id: uuid(),
-//     }};
+//     };
+//     const noteString = JSON.stringify(newNote);
+//     fs.writeFile(`./db/db.json`, noteString, (err) =>{}
+//     );
 
 //     const response = {
-//       body: newNote,
-//     };
-// });
-
-  
+//       status: 'success',
+//       body: newReview,
+//     }};
+//   });
   
 
   //need to make a function to create a new note
