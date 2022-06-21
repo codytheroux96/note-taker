@@ -44,11 +44,8 @@ app.get("/api/notes", (req, res) => {
   //   return newNote;
   // };  
   
-  // app.post('/api/notes', (req, res) => {
-  //   req.body.id = uuid();
-  //   const note = createNewNote(req.body, notes);
-  //   res.json(note);
-  // });
+// app.post('/api/notes', (req, res) => {
+// });
   
 
 
