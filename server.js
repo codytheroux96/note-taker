@@ -27,8 +27,8 @@ app.get("/api/notes", (req, res) => {
     res.json(notes);
   });
   
-  // function createNewNote(body, notesArray) {
-  //   const { title, text}= req.body;
+  // function createNewNote(note, notesArray) {
+  //   const { title, text} = note;
   //   const notesArray = [];
   //   let newNote = {
   //     title,
