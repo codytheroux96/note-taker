@@ -3,29 +3,50 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const PORT = 3001;
-const { notes } = require("./db/db.json");
-const { uuid } = require("./utils/utils.js");
+const apiRoutes = require('./routes/apiRoutes')
+const htmlRoutes = require("./routes/htmlRoutes");
 
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "./public/index.html"));
-});
 
-app.get("/notes", (req, res) => {
-  res.sendFile(path.join(__dirname, "./public/notes.html"));
-});
+// app.get("/notes", (req, res) => {
+//   res.sendFile(path.join(__dirname, "./public/notes.html"));
+// });
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./public/index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "./public/index.html"));
+//   console.log(notes)
 
-app.get("/api/notes", (req, res) => {
-  res.json(notes);
-});
+// });
+
+// app.get("/api/notes", (req, res) => {
+//  // res.json(notes);
+//  res.send("notes");
+// });
+app.use('/api', apiRoutes)
+app.use("/", htmlRoutes)
+
+
+// app.post('/api/notes', (req, res) => {
+//   const { title, text, } = req.body;
+//   if (title && text) {
+//     const newNote = {
+//       title,
+//       text,
+//       review_id: uuid(),
+//     };
+//     let noteString = JSON.stringify((newNote), null, 2);
+//     fs.writeFile(`./db/db.json`, noteString, () => {
+//      const response = {
+//         body: newNote,
+//       }
+//     })
+//   };
+//   return notes.push(newNote);
+// });
 
 // function createNewNote(note, notesArray) {
 //   const { title, text} = note;
@@ -48,24 +69,6 @@ app.get("/api/notes", (req, res) => {
 // });
 
 
-
-// app.post('/api/notes', (req, res) => {
-//   const { title, text, } = req.body;
-//   if (title && text) {
-//     const newNote = {
-//       title,
-//       text,
-//       review_id: uuid(),
-//     };
-//     let noteString = JSON.stringify((newNote), null, 2);
-//     fs.writeToFile(`./db/db.json`, noteString, () => {
-//      const response = {
-//         status: 'success',
-//         body: newNote,
-//       }
-//     })
-//   };
-// })
 
 
 //need to make a function to create a new note
