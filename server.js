@@ -5,6 +5,7 @@ const app = express();
 const PORT = 3001;
 const  notes   = require("./db/db.json");
 const { uuid } = require("./utils/utils");
+const { response } = require("express");
 
 
 app.use(express.urlencoded({ extended: true }));
@@ -24,18 +25,20 @@ app.get("*", (req, res) => {
 });
 
 app.post('/api/notes', (req, res) => {
-  const { title, text, } = req.body;
+  const { title, text } = req.body;
   if (title && text) {
     const newNote = {
       title,
       text,
-      review_id: uuid(),
+      id: uuid(),
     };
-    let noteArray = JSON.stringify((newNote), null, 2);
+    notes.push(newNote);
+    let noteArray = JSON.stringify((notes), null, 2);
     fs.writeFile(`./db/db.json`, noteArray, () => {
       const response = {
         body: newNote,
       }
+      res.json(response);
     })
   };;
 });
