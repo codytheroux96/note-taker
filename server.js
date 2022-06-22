@@ -45,7 +45,7 @@ app.post('/api/notes', (req, res) => {
   };;
 });
 //found this method for app.delete online
-app.delete('/api/notes/:id', (req, res) => {
+app.delete("/api/notes/:id", (req, res) => {
   const { id } = req.params;
   const delNote = notes.findIndex(note => note.id ==id);
   notes.splice(delNote, 1);
