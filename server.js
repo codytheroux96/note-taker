@@ -44,7 +44,13 @@ app.post('/api/notes', (req, res) => {
     })
   };;
 });
-
+//found this method for app.delete online
+app.delete('/api/notes/:id', (req, res) => {
+  const { id } = req.params;
+  const delNote = notes.findIndex(note => note.id ==id);
+  notes.splice(delNote, 1);
+  return res.send();
+});
 
 //shows the app is listening and running on the port we want it to
 app.listen(PORT, () =>
