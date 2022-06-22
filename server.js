@@ -43,49 +43,6 @@ app.post('/api/notes', (req, res) => {
   };;
 });
 
-// function createNewNote(body, notesArray) {
-//   const note = body;
-//   notes.push(note);
-//   fs.writeFileSync(
-//     path.join(__dirname, "./db/db.json"),
-//     JSON.stringify({ notes: notesArray }, null, 2)
-//   );
-//   return note;
-// };  
-// app.post('/api/notes', (req, res) => {
-//   req.body.id = uuid();
-//   const note = createNewNote(req.body, notes);
-//   res.json(note);
-// });
-
-
-
-// function createNewNote(note, notesArray) {
-//   const { title, text} = note;
-//   let newNote = {
-//     title,
-//     text,
-//   };
-//   if (title && text)
-//   notesArray.push(newNote);
-//   fs.writeFileSync(
-//     path.join(__dirname, './db/db.json'),
-//     JSON.stringify({ notes: notesArray }, null, 2)
-//   );
-//   return newNote;
-// };  
-// app.post("/api/notes", (req, res) => {
-//   req.body.id = uuid();
-//   const note = createNewNote(req.body, notes);
-//   res.json(note);
-// });
-
-
-
-
-//need to make a function to create a new note
-//need to make an app.post to post the new note
-
 
 
 app.listen(PORT, () =>
