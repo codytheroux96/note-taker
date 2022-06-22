@@ -3,7 +3,7 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const PORT = 3001;
-const  notes   = require("./db/db.json");
+const notes = require("./db/db.json");
 const { uuid } = require("./utils/utils");
 const { response } = require("express");
 
@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 app.get("/api/notes", (req, res) => {
- res.json(notes);
+  res.json(notes);
 });
 
 app.get("/notes", (req, res) => {
