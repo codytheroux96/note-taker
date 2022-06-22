@@ -1,3 +1,4 @@
+//list my dependencies
 const fs = require("fs");
 const express = require("express");
 const path = require("path");
@@ -11,6 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
+//listing my routes
 app.get("/api/notes", (req, res) => {
   res.json(notes);
 });
@@ -23,6 +25,7 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 
+//this post will create a new note and display it to the page
 app.post('/api/notes', (req, res) => {
   const { title, text } = req.body;
   if (title && text) {
@@ -43,7 +46,7 @@ app.post('/api/notes', (req, res) => {
 });
 
 
-
+//shows the app is listening and running on the port we want it to
 app.listen(PORT, () =>
   console.info(`This app is listening at http://localhost:${PORT} 🚀`)
 );
