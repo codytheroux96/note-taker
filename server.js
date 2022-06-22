@@ -2,10 +2,9 @@ const fs = require("fs");
 const express = require("express");
 const path = require("path");
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 const notes = require("./db/db.json");
 const { uuid } = require("./utils/utils");
-const { response } = require("express");
 
 
 app.use(express.urlencoded({ extended: true }));
